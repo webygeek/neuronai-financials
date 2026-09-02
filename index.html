@@ -54,7 +54,7 @@ section{padding:72px 0;scroll-margin-top:68px;width:100%;overflow-x:hidden}
 /* Scroll progress + Sidebar */
 .scrollbar{position:fixed;top:0;left:0;right:0;height:4px;z-index:60;background:transparent;pointer-events:none!important}
 .scrollbar span{display:block;height:100%;width:0;background:var(--grad)}
-.sidebar{position:fixed;top:0;left:0;bottom:0;width:240px;background:var(--ink);z-index:50;display:flex;flex-direction:column;padding:1.3rem 1rem 1.1rem;gap:1rem;will-change:transform}
+.sidebar{position:fixed;top:0;left:0;bottom:0;width:240px;background:var(--ink);z-index:50;display:flex;flex-direction:column;padding:1.3rem 1rem 1.1rem;gap:.9rem;will-change:transform}
 .sidebar::after{content:"";position:absolute;top:0;right:0;bottom:0;width:3px;background:var(--grad);opacity:.9}
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;padding:.2rem .3rem}
 .brand-ring{width:38px;height:38px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -64,9 +64,9 @@ section{padding:72px 0;scroll-margin-top:68px;width:100%;overflow-x:hidden}
 .side-nav{flex:1;display:flex;flex-direction:column;overflow-y:auto;margin:0 -.3rem;padding:0 .3rem;scrollbar-width:thin;scrollbar-color:#33344E transparent}
 .side-nav::-webkit-scrollbar{width:4px}
 .side-nav::-webkit-scrollbar-thumb{background:#33344E;border-radius:4px}
-.side-group{font-family:var(--mono);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#5D6070;padding:.85rem .55rem .35rem}
-.side-group:first-child{padding-top:.2rem}
-.side-link{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:#A0A3AD;text-decoration:none;padding:.4rem .55rem;border-radius:10px;transition:background .2s,color .2s;position:relative;line-height:1.3}
+.side-group{font-family:var(--mono);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#5D6070;padding:.8rem .55rem .3rem}
+.side-group:first-child{padding-top:.1rem}
+.side-link{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:#A0A3AD;text-decoration:none;padding:.38rem .55rem;border-radius:10px;transition:background .2s,color .2s;position:relative;line-height:1.3}
 .side-link .sl-dot{width:6px;height:6px;border-radius:50%;background:#3A3B52;flex-shrink:0;transition:all .25s}
 .side-link:hover{background:rgba(255,255,255,.05);color:#E8EAEF}
 .side-link.on{background:linear-gradient(90deg,rgba(0,188,212,.16),rgba(33,150,243,.08));color:#fff;font-weight:600}
@@ -76,6 +76,8 @@ section{padding:72px 0;scroll-margin-top:68px;width:100%;overflow-x:hidden}
 .sp-track{flex:1;height:5px;border-radius:999px;background:#2A2B42;overflow:hidden}
 .sp-track span{display:block;height:100%;width:0;border-radius:999px;background:var(--grad);transition:width .2s linear}
 .sp-lbl{font-family:var(--mono);font-size:.6rem;color:#6B6E78;white-space:nowrap;min-width:56px;text-align:right}
+.btn-pitch-link{display:flex;align-items:center;justify-content:center;gap:.4rem;font-family:var(--display);font-size:.76rem;font-weight:600;color:#4DD0E1;background:rgba(0,188,212,.12);border:1px solid rgba(0,188,212,.3);padding:.55rem .8rem;border-radius:10px;text-decoration:none;transition:all .2s;text-align:center}
+.btn-pitch-link:hover{background:rgba(0,188,212,.22);color:#fff;transform:translateY(-1px)}
 .cta-mini{font-family:var(--display);font-weight:600;font-size:.84rem;color:#04262C;background:var(--marigold);padding:.65rem 1rem;border-radius:12px;text-decoration:none;transition:filter .2s,transform .2s;text-align:center}
 .cta-mini:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .m-head{display:none}
@@ -114,6 +116,8 @@ section{padding:72px 0;scroll-margin-top:68px;width:100%;overflow-x:hidden}
 .btn-primary:hover{background:#00A5BB;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,188,212,.3)}
 .btn-ghost{background:transparent;color:var(--ink-2);border:1.5px solid var(--cyan)}
 .btn-ghost:hover{background:var(--cyan-soft)}
+.btn-portal-toggle{background:#1A1B2E;color:#4DD0E1;border:1.5px solid rgba(0,188,212,.4)}
+.btn-portal-toggle:hover{background:#232438;color:#fff;border-color:var(--cyan)}
 
 /* 3 Core Truths Grid (Executive Punchlines) */
 .truths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.2rem}
@@ -137,8 +141,8 @@ section{padding:72px 0;scroll-margin-top:68px;width:100%;overflow-x:hidden}
 
 /* Cards & Layout */
 .grid{display:grid;gap:1.2rem}
-.g-2{grid-template-columns:1fr 1fr}.g-3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:860px){.g-2,.g-3{grid-template-columns:1fr}}
+.g-2{grid-template-columns:1fr 1fr}.g-3{grid-template-columns:repeat(3,1fr)}.g-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g-2,.g-3,.g-4{grid-template-columns:1fr}}
 .card{background:var(--card);border-radius:18px;padding:1.4rem 1.6rem;border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
 .card:hover{transform:translateY(-2px);background:var(--elev);box-shadow:0 10px 24px rgba(26,27,46,.06)}
 .card h3{font-size:1.08rem;margin-bottom:.45rem}
@@ -176,6 +180,16 @@ details.deep-dive[open] summary.dd-summary::after{content:"−";transform:rotate
 /* Takeaway Banner */
 .takeaway-banner{background:var(--cyan-soft);border-left:4px solid var(--cyan);border-radius:4px 14px 14px 4px;padding:1rem 1.3rem;font-size:.92rem;color:var(--ink);margin-top:1rem}
 .takeaway-banner strong{color:var(--ink-2);font-family:var(--display)}
+
+/* COGS Breakdown Cards */
+.cogs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem}
+@media(max-width:860px){.cogs-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.cogs-grid{grid-template-columns:1fr}}
+.cogs-card{background:var(--elev);border:1px solid var(--line);border-radius:14px;padding:1.1rem;text-align:left}
+.cogs-card .c-pct{font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--cyan);display:block;margin-bottom:.2rem}
+.cogs-card .c-amt{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--ink)}
+.cogs-card .c-name{font-size:.84rem;font-weight:600;color:var(--ink);margin:.2rem 0 .1rem}
+.cogs-card .c-desc{font-size:.76rem;color:var(--slate);line-height:1.35}
 
 /* Valuation Widget & Interactive Simulator */
 .calc-card{background:var(--elev);border-radius:20px;padding:1.8rem 2rem;border:1px solid var(--line);margin-top:1rem}
@@ -220,14 +234,19 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     <a class="side-link" data-target="#truths" role="link" tabindex="0"><span class="sl-dot"></span>3 Core Truths</a>
     <a class="side-link" data-target="#tam" role="link" tabindex="0"><span class="sl-dot"></span>The 4% TAM Scale</a>
     
-    <div class="side-group">Economics & Verification</div>
+    <div class="side-group">Unit Economics & Infrastructure</div>
     <a class="side-link" data-target="#competitors" role="link" tabindex="0"><span class="sl-dot"></span>Competitor Proof</a>
     <a class="side-link" data-target="#pricing" role="link" tabindex="0"><span class="sl-dot"></span>Pricing & ARPU</a>
+    <a class="side-link" data-target="#cogs" role="link" tabindex="0"><span class="sl-dot"></span>AI & Cloud Server Costs</a>
     <a class="side-link" data-target="#simulator" role="link" tabindex="0"><span class="sl-dot"></span>Revenue Simulator</a>
+
+    <div class="side-group">Returns & Roadmap</div>
+    <a class="side-link" data-target="#returns" role="link" tabindex="0"><span class="sl-dot"></span>Investor Returns (100x)</a>
     <a class="side-link" data-target="#projections" role="link" tabindex="0"><span class="sl-dot"></span>5-Year Roadmap</a>
     <a class="side-link" data-target="#ask" role="link" tabindex="0"><span class="sl-dot"></span>The Investment Ask</a>
   </div>
   <div class="side-progress"><div class="sp-track"><span id="sideProg"></span></div><span class="sp-lbl" id="sideProgLbl">0% read</span></div>
+  <a class="btn-pitch-link" href="https://neuronai-investor-portal.vercel.app" target="_blank" rel="noopener">🌐 View Product Pitch ↗</a>
   <a class="cta-mini" data-target="#ask" role="link" tabindex="0">View The Ask ↓</a>
 </nav>
 
@@ -241,11 +260,12 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   <div class="wrap">
     <p class="salutation reveal visible">Confidential Financial Intelligence Memo</p>
     <h1 class="reveal visible">De-risked Beachhead to <span class="hl">₹1,080 Cr ARR Scale</span></h1>
-    <p class="lede reveal visible">A streamlined financial roadmap showing how Neuron AI captures India's high-stakes exam market — moving from a profitable Medical beachhead to an institutional multi-vertical software unicorn with <strong>80%+ pure SaaS gross margins</strong>.</p>
+    <p class="lede reveal visible">A streamlined financial roadmap showing how Neuron AI captures India's high-stakes exam market — scaling from a profitable Medical beachhead to an institutional multi-vertical software unicorn with <strong>88% pure SaaS gross margins</strong>.</p>
     
     <div class="hero-actions reveal visible">
       <a class="btn btn-primary" data-target="#simulator" role="link" tabindex="0">Interactive Valuation Simulator ↓</a>
-      <a class="btn btn-ghost" data-target="#truths" role="link" tabindex="0">Explore The 3 Core Truths</a>
+      <a class="btn btn-ghost" data-target="#cogs" role="link" tabindex="0">AI &amp; Cloud Unit Economics</a>
+      <a class="btn btn-portal-toggle" href="https://neuronai-investor-portal.vercel.app" target="_blank" rel="noopener">🌐 Open Main Product Pitch Portal ↗</a>
     </div>
 
     <div class="kpi-band reveal">
@@ -302,8 +322,8 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
       <div class="truth-card" style="border-left:4px solid var(--marigold)">
         <div>
           <span class="truth-num" style="color:var(--marigold)">Truth 3 · Pure Software Economics</span>
-          <h3>80%+ Gross Margin (Zero Real Estate Burn)</h3>
-          <p>Legacy players (Allen, PW) burned billions scaling physical centers with ₹1,000–₹2,000 Cr payroll. Neuron AI operates as <strong>pure autonomous AI software</strong> with zero offline drag.</p>
+          <h3>88% Gross Margin (Zero Real Estate Burn)</h3>
+          <p>Legacy players (Allen, PW) burned billions scaling physical centers with ₹1,000–₹2,000 Cr payroll. Neuron AI operates as <strong>pure autonomous AI software</strong> with zero offline real estate drag.</p>
         </div>
         <div class="truth-stat" style="color:#B45E09">Unit Economics: CAC &lt; ₹1,500 | LTV:CAC &gt; 12:1</div>
       </div>
@@ -473,7 +493,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
         <span class="badge" style="background:rgba(239,68,68,.18);color:#F4A9A9;margin-bottom:.5rem">The Offline Capex Trap</span>
         <h3 style="color:#fff;font-size:1.15rem">PhysicsWallah &amp; Allen: Billions in Center Overhead</h3>
         <p style="color:#A0A3AD;font-size:.88rem">PhysicsWallah reported <strong>₹2,015 Cr revenue but ₹3,279 Cr expenses (loss ₹1,131 Cr)</strong> in FY24 due to offline center capex. Allen incurred <strong>₹1,958 Cr employee payroll</strong> alone. Physical coaching centers crush gross margins.</p>
-        <div style="margin-top:.8rem;color:#F4A9A9;font-family:var(--mono);font-size:.82rem;font-weight:600">Neuron AI Edge: Pure 80%+ gross margin cloud software.</div>
+        <div style="margin-top:.8rem;color:#F4A9A9;font-family:var(--mono);font-size:.82rem;font-weight:600">Neuron AI Edge: Pure 88% gross margin cloud software.</div>
       </div>
     </div>
 
@@ -567,7 +587,82 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   </div>
 </section>
 
-<!-- 4. Interactive Revenue & Valuation Simulator -->
+<!-- 4. AI & Cloud Server Infrastructure Costs (COGS Breakdown) -->
+<section id="cogs" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Gross Margin & Infrastructure</span>
+      <h2>AI &amp; Cloud Server Unit Economics: 88% Pure Gross Margin</h2>
+      <p>A granular breakdown of the monthly Cost-of-Goods-Sold (COGS) to serve one active student paying the ₹900/month blended subscription:</p>
+    </div>
+
+    <div class="card reveal" style="border-left:4px solid var(--cyan);background:var(--elev)">
+      <div class="cogs-grid">
+        <div class="cogs-card">
+          <span class="c-pct">5.0% of ARPU</span>
+          <div class="c-amt">₹45 <span style="font-size:.85rem;font-weight:400;color:var(--slate)">/ mo</span></div>
+          <div class="c-name">AI LLM Inference</div>
+          <div class="c-desc">Gemini 2.5 Flash / Vertex AI with Groq fast token caching &amp; semantic vector search.</div>
+        </div>
+        <div class="cogs-card">
+          <span class="c-pct" style="color:var(--blue)">3.1% of ARPU</span>
+          <div class="c-amt" style="color:var(--blue)">₹28 <span style="font-size:.85rem;font-weight:400;color:var(--slate)">/ mo</span></div>
+          <div class="c-name">Cloud Server &amp; Compute</div>
+          <div class="c-desc">GCP/AWS Kubernetes Engine, Redis Memory Cache clusters &amp; PostgreSQL pgvector DB.</div>
+        </div>
+        <div class="cogs-card">
+          <span class="c-pct" style="color:var(--marigold)">2.0% of ARPU</span>
+          <div class="c-amt" style="color:var(--marigold)">₹18 <span style="font-size:.85rem;font-weight:400;color:var(--slate)">/ mo</span></div>
+          <div class="c-name">CDN &amp; Video Bandwidth</div>
+          <div class="c-desc">Cloudflare Enterprise edge-caching for low-latency video &amp; asset delivery.</div>
+        </div>
+        <div class="cogs-card">
+          <span class="c-pct" style="color:var(--emerald)">2.0% of ARPU</span>
+          <div class="c-amt" style="color:var(--emerald)">₹18 <span style="font-size:.85rem;font-weight:400;color:var(--slate)">/ mo</span></div>
+          <div class="c-name">Payment Gateway Fees</div>
+          <div class="c-desc">Standard 2.0% merchant processing &amp; UPI auto-debit via Razorpay / Stripe.</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap" style="margin-top:1.4rem">
+        <table class="memory-table">
+          <thead>
+            <tr>
+              <th>Financial Component</th>
+              <th>Monthly Amount (Per Student)</th>
+              <th>Annual Amount (Per Student)</th>
+              <th>Share of Monthly Revenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Gross Subscription Revenue (ARPU)</strong></td>
+              <td><strong>₹900.00 / mo</strong></td>
+              <td><strong>₹10,800.00 / yr</strong></td>
+              <td><span class="badge badge-cyan">100.0%</span></td>
+            </tr>
+            <tr>
+              <td>Total Direct Infrastructure &amp; AI COGS</td>
+              <td style="color:var(--rose)">−₹109.00 / mo</td>
+              <td style="color:var(--rose)">−₹1,308.00 / yr</td>
+              <td><span class="badge" style="background:var(--rose-soft);color:var(--rose)">12.1% Total Cost</span></td>
+            </tr>
+            <tr style="background:var(--emerald-soft);font-weight:700">
+              <td style="color:var(--emerald)"><strong>Net Software Gross Profit</strong></td>
+              <td style="color:var(--emerald);font-family:var(--mono);font-size:1.05rem"><strong>₹791.00 / mo</strong></td>
+              <td style="color:var(--emerald);font-family:var(--mono);font-size:1.05rem"><strong>₹9,492.00 / yr</strong></td>
+              <td style="color:var(--emerald);font-family:var(--mono)"><strong>87.9% ≈ 88% Pure Margin</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:.84rem;color:var(--slate);margin-top:.6rem">💡 <strong>Cloud Scale Advantage:</strong> With Kubernetes Horizontal Pod Autoscaling (HPA) and semantic query deduplication, token inference and cloud costs decrease by ~35% at 100,000+ subscriber scale due to enterprise volume tiering.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Interactive Revenue & Valuation Simulator -->
 <section id="simulator" style="padding-top:0">
   <div class="wrap">
     <div class="section-head reveal">
@@ -630,7 +725,51 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   </div>
 </section>
 
-<!-- 5. 5-Year Multi-Year Run-Rate Roadmap -->
+<!-- 6. Investor Returns & Multiple on Invested Capital (MOIC) -->
+<section id="returns" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Capital Efficiency & Returns</span>
+      <h2>Investor Return Horizons &amp; Value Markup</h2>
+      <p>Target return horizons on the ₹10 Crore initial milestone-gated round across successive growth checkpoints:</p>
+    </div>
+
+    <div class="grid g-3 stagger">
+      <div class="card" style="border-left:4px solid var(--cyan)">
+        <span class="badge badge-cyan" style="margin-bottom:.5rem">Checkpoint 1 · 18–24 Months</span>
+        <h3>Year 2 Beachhead (25k Users)</h3>
+        <p style="margin-bottom:.8rem">₹27 Cr ARR @ 8x multiple = <strong>₹216 Cr Enterprise Valuation</strong>.</p>
+        <div style="font-family:var(--mono);font-size:.82rem;font-weight:700;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:.6rem">
+          🚀 ~3.5x to 4.5x Initial Value Step-Up
+        </div>
+      </div>
+
+      <div class="card" style="border-left:4px solid var(--blue)">
+        <span class="badge" style="background:var(--blue-soft);color:var(--blue);margin-bottom:.5rem">Checkpoint 2 · Year 3 Expansion</span>
+        <h3>Multi-Vertical Scale (80k Users)</h3>
+        <p style="margin-bottom:.8rem">₹86.4 Cr ARR @ 8x multiple = <strong>₹691 Cr Valuation</strong> (Series A/B round).</p>
+        <div style="font-family:var(--mono);font-size:.82rem;font-weight:700;color:var(--blue);border-top:1px dashed var(--line);padding-top:.6rem">
+          📈 ~10x Institutional Value Markup
+        </div>
+      </div>
+
+      <div class="card" style="border-left:4px solid var(--emerald)">
+        <span class="badge badge-emerald" style="margin-bottom:.5rem">Scale Horizon · Year 5 Unicorn</span>
+        <h3>10 Lakh Subscribers ($130M ARR)</h3>
+        <p style="margin-bottom:.8rem">₹1,080 Cr ARR @ 8x multiple = <strong>₹8,640 Cr ($1.05B Unicorn)</strong>.</p>
+        <div style="font-family:var(--mono);font-size:.82rem;font-weight:700;color:var(--emerald);border-top:1px dashed var(--line);padding-top:.6rem">
+          🦄 ~80x to 100x Fund-Returning Horizon
+        </div>
+      </div>
+    </div>
+
+    <div class="takeaway-banner reveal" style="background:#232438;border-color:var(--marigold);color:#fff">
+      <strong style="color:var(--marigold)">Liquidity &amp; Exit Pathways:</strong> High cash-flow generation enables dual exit routes — a Domestic Tech IPO on NSE/BSE (following PhysicsWallah / Awfis public listing precedent) or Strategic Global M&amp;A by international players (M3 Group, Amboss, UWorld, Coursera).
+    </div>
+  </div>
+</section>
+
+<!-- 7. 5-Year Multi-Year Run-Rate Roadmap -->
 <section id="projections" style="padding-top:0">
   <div class="wrap">
     <div class="section-head reveal">
@@ -700,7 +839,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   </div>
 </section>
 
-<!-- 6. The Investment Ask -->
+<!-- 8. The Investment Ask -->
 <section id="ask" class="dark" style="padding-bottom:90px">
   <div class="wrap">
     <div class="section-head reveal">
