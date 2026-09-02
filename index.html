@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuron AI — Financial Intelligence & Multi-Vertical Economics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Lexend+Deca:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Lexend+Deca:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Dendrite v2.2 Tokens */
+  --porcelain:#F6F4F0;
+  --card:#FDFCFA;
+  --elev:#FFFFFF;
+  --ink:#1A1B2E;
+  --ink-2:#00838F;
+  --cyan:#00BCD4;
+  --cyan-soft:#E0F7FA;
+  --blue:#2196F3;
+  --blue-soft:#E3F2FD;
+  --marigold:#EB933A;
+  --marigold-soft:#FFF3E0;
+  --gold:#F59E0B;
+  --slate:#5A5D6B;
+  --muted:#8E919D;
+  --line:#ECE9E3;
+  --rose:#EF4444;
+  --violet:#8B5CF6;
+  --emerald:#10B981;
+  --emerald-soft:#E8F8F0;
+  --grad:linear-gradient(135deg,#00BCD4,#2196F3);
+  --grad-gold:linear-gradient(135deg,#F59E0B,#EB933A);
+  --display:'Lexend',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --body:'Lexend Deca',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden;width:100%}
+body{font-family:var(--body);background:var(--porcelain);color:var(--slate);line-height:1.6;font-size:16px;padding-left:240px;overflow-x:hidden;width:100%;max-width:100vw;position:relative}
+::selection{background:var(--cyan);color:#fff}
+h1,h2,h3,h4{font-family:var(--display);color:var(--ink);line-height:1.2}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);display:inline-flex;align-items:center;gap:.6rem;margin-bottom:.8rem;font-weight:600}
+.eyebrow::before{content:"";width:24px;height:3px;border-radius:2px;background:var(--grad);display:inline-block}
+.dark .eyebrow{color:#4DD0E1}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;width:100%}
+section{padding:80px 0;scroll-margin-top:68px;width:100%;overflow-x:hidden}
+.section-head{max-width:760px;margin-bottom:2.4rem}
+.section-head h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:700;letter-spacing:-.015em;margin-bottom:.8rem}
+.dark{background:var(--ink);color:#A0A3AD}
+.dark h2,.dark h3{color:#fff}
+
+/* Scroll progress + Sidebar */
+.scrollbar{position:fixed;top:0;left:0;right:0;height:4px;z-index:60;background:transparent;pointer-events:none!important}
+.scrollbar span{display:block;height:100%;width:0;background:var(--grad)}
+.sidebar{position:fixed;top:0;left:0;bottom:0;width:240px;background:var(--ink);z-index:50;display:flex;flex-direction:column;padding:1.3rem 1rem 1.1rem;gap:1rem;will-change:transform}
+.sidebar::after{content:"";position:absolute;top:0;right:0;bottom:0;width:3px;background:var(--grad);opacity:.9}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;padding:.2rem .3rem}
+.brand-ring{width:38px;height:38px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-ring svg{width:22px;height:22px}
+.brand-txt{font-family:var(--display);font-weight:800;color:#fff;font-size:.95rem;line-height:1.15;display:flex;flex-direction:column}
+.brand-txt small{font-family:var(--mono);font-weight:400;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:#6B6E78;margin-top:.2rem}
+.side-nav{flex:1;display:flex;flex-direction:column;overflow-y:auto;margin:0 -.3rem;padding:0 .3rem;scrollbar-width:thin;scrollbar-color:#33344E transparent}
+.side-nav::-webkit-scrollbar{width:4px}
+.side-nav::-webkit-scrollbar-thumb{background:#33344E;border-radius:4px}
+.side-group{font-family:var(--mono);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#5D6070;padding:.85rem .55rem .35rem}
+.side-group:first-child{padding-top:.2rem}
+.side-link{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:#A0A3AD;text-decoration:none;padding:.4rem .55rem;border-radius:10px;transition:background .2s,color .2s;position:relative;line-height:1.3}
+.side-link .sl-dot{width:6px;height:6px;border-radius:50%;background:#3A3B52;flex-shrink:0;transition:all .25s}
+.side-link:hover{background:rgba(255,255,255,.05);color:#E8EAEF}
+.side-link.on{background:linear-gradient(90deg,rgba(0,188,212,.16),rgba(33,150,243,.08));color:#fff;font-weight:600}
+.side-link.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--grad)}
+.side-link.on .sl-dot{background:#4DD0E1;box-shadow:0 0 0 3px rgba(0,188,212,.22);transform:scale(1.25)}
+.side-progress{display:flex;align-items:center;gap:.6rem;padding:0 .3rem}
+.sp-track{flex:1;height:5px;border-radius:999px;background:#2A2B42;overflow:hidden}
+.sp-track span{display:block;height:100%;width:0;border-radius:999px;background:var(--grad);transition:width .2s linear}
+.sp-lbl{font-family:var(--mono);font-size:.6rem;color:#6B6E78;white-space:nowrap;min-width:56px;text-align:right}
+.cta-mini{font-family:var(--display);font-weight:600;font-size:.84rem;color:#04262C;background:var(--marigold);padding:.65rem 1rem;border-radius:12px;text-decoration:none;transition:filter .2s,transform .2s;text-align:center}
+.cta-mini:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.m-head{display:none}
+.backdrop{display:none}
+
+@media(max-width:900px){
+  body{padding-left:0;padding-top:58px;overflow-x:hidden;width:100%}
+  .m-head{display:flex;position:fixed;top:0;left:0;right:0;height:58px;z-index:60;background:var(--ink);align-items:center;justify-content:space-between;padding:0 1rem;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+  .m-brand{display:flex;align-items:center;gap:.55rem;font-family:var(--display);font-weight:800;color:#fff;font-size:.95rem}
+  .m-brand .brand-ring{width:32px;height:32px;border-radius:9px}
+  .m-brand .brand-ring svg{width:18px;height:18px}
+  .m-menu-btn{display:flex;align-items:center;gap:.5rem;font-family:var(--display);font-weight:600;font-size:.84rem;color:#04262C;background:var(--marigold);border:none;border-radius:10px;padding:.5rem .9rem;cursor:pointer}
+  .sidebar{transform:translateX(-105%);transition:transform .3s ease,visibility .3s ease;box-shadow:8px 0 30px rgba(0,0,0,.3);width:min(280px,84vw);top:0;z-index:70;visibility:hidden;pointer-events:none}
+  .sidebar.open{transform:none;visibility:visible;pointer-events:auto}
+  .backdrop{position:fixed;inset:0;background:rgba(20,20,22,.5);z-index:65;opacity:0;pointer-events:none;transition:opacity .3s,visibility .3s;display:block;visibility:hidden}
+  .backdrop.show{opacity:1;pointer-events:auto;visibility:visible}
+}
+
+/* Animations */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.stagger.visible>*{opacity:1;transform:none}
+
+/* Hero Section */
+.hero{padding:92px 0 64px;position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.salutation{font-family:var(--display);font-size:clamp(1.2rem,2.4vw,1.5rem);font-weight:700;color:var(--ink);margin-bottom:1.1rem;position:relative;display:inline-block;padding-bottom:.4rem}
+.salutation::after{content:"";position:absolute;left:0;bottom:0;width:56px;height:3px;border-radius:3px;background:var(--grad)}
+.hero h1{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.2rem}
+.hero h1 .hl{color:var(--cyan)}
+.hero p.lede{font-size:1.08rem;max-width:720px;margin-bottom:2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{font-family:var(--display);font-weight:600;font-size:.92rem;border-radius:12px;padding:.8rem 1.6rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s;border:none;cursor:pointer}
+.btn-primary{background:var(--cyan);color:#fff}
+.btn-primary:hover{background:#00A5BB;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,188,212,.3)}
+.btn-ghost{background:transparent;color:var(--ink-2);border:1.5px solid var(--cyan)}
+.btn-ghost:hover{background:var(--cyan-soft)}
+
+/* Number & KPI Grid */
+.kpi-band{margin-top:2.2rem;background:var(--ink);border-radius:20px;padding:1.8rem 2rem;color:#A0A3AD;box-shadow:0 18px 42px rgba(26,27,46,.25);position:relative;overflow:hidden}
+.kpi-band::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.kpi-grid{grid-template-columns:1fr}}
+.kpi-item .kpi-num{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,2.8vw,2.1rem);color:#fff;letter-spacing:-.02em;white-space:nowrap}
+.kpi-item .unit{font-size:.9rem;color:#4DD0E1;font-weight:600}
+.kpi-item .lbl{font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#6B6E78;margin-top:.35rem;line-height:1.4}
+
+/* Cards & Layout */
+.grid{display:grid;gap:1.2rem}
+.g-2{grid-template-columns:1fr 1fr}.g-3{grid-template-columns:repeat(3,1fr)}.g-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g-2,.g-3,.g-4{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:18px;padding:1.4rem 1.6rem;border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);background:var(--elev);box-shadow:0 10px 24px rgba(26,27,46,.06)}
+.card h3{font-size:1.08rem;margin-bottom:.45rem}
+.card p{font-size:.9rem}
+
+/* Table Wrapper for Zero Mobile Scroll Issues */
+.tbl-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.9rem 0;border-radius:14px;border:1px solid var(--line);background:var(--card)}
+.memory-table{width:100%;border-collapse:collapse;min-width:560px;font-size:.85rem}
+.memory-table th{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:.75rem .95rem;background:var(--ink);color:#A0A3AD;font-weight:500;white-space:nowrap}
+.memory-table td{padding:.7rem .95rem;border-top:1px solid var(--line);color:var(--ink)}
+.memory-table tr:hover td{background:rgba(0,188,212,.03)}
+.gain{font-family:var(--mono);font-weight:600;color:var(--cyan)}
+.loss{font-family:var(--mono);font-weight:600;color:var(--rose)}
+.badge{display:inline-block;font-family:var(--mono);font-size:.64rem;padding:.2rem .55rem;border-radius:6px;font-weight:600}
+.badge-cyan{background:var(--cyan-soft);color:var(--ink-2)}
+.badge-emerald{background:var(--emerald-soft);color:var(--emerald)}
+.badge-marigold{background:var(--marigold-soft);color:#B45E09}
+
+/* Valuation Widget & Interactive Simulator */
+.calc-card{background:var(--elev);border-radius:20px;padding:2rem;border:1px solid var(--line);margin-top:1rem}
+.calc-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+@media(max-width:860px){.calc-grid{grid-template-columns:1fr}}
+.range-group{margin-bottom:1.4rem}
+.range-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.45rem;font-family:var(--mono);font-size:.78rem;text-transform:uppercase}
+.range-header span:first-child{color:var(--slate);font-weight:500}
+.range-header span.val{color:var(--ink);font-weight:700;font-size:.9rem}
+input[type=range]{width:100%;height:6px;border-radius:6px;background:var(--line);outline:none;-webkit-appearance:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--cyan);cursor:pointer;box-shadow:0 2px 8px rgba(0,188,212,.4);transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+.calc-results{background:var(--ink);color:#fff;border-radius:18px;padding:1.6rem;display:grid;gap:1.1rem;position:relative;overflow:hidden}
+.calc-results::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+.res-item .r-lbl{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#8E919D}
+.res-item .r-val{font-family:var(--display);font-weight:800;font-size:1.75rem;color:#fff;letter-spacing:-.02em}
+.res-item .r-val .unit{font-size:.95rem;color:#4DD0E1;font-weight:600}
+
+/* Allocation & Progress Bars */
+.alloc{display:grid;gap:.85rem;margin-top:1.1rem}
+.alloc-item{display:grid;grid-template-columns:110px 1fr;gap:1rem;align-items:center;font-size:.88rem}
+.alloc-item .amt{font-family:var(--mono);color:var(--ink);font-weight:600}
+.alloc-bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.alloc-bar span{display:block;height:100%;border-radius:999px;background:var(--grad);width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+
+/* Footer */
+.footer{background:#052228;color:#6E9296;font-size:.76rem;padding:1.4rem 0;text-align:center;font-family:var(--mono)}
+</style>
+</head>
+<body>
+
+<div class="scrollbar" aria-hidden="true"><span id="scrollFill"></span></div>
+
+<nav class="sidebar" aria-label="Sections">
+  <a class="brand" data-target="#top" role="link" tabindex="0" aria-label="Neuron AI home">
+    <span class="brand-ring"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="5" fill="#00BCD4"/><circle cx="27" cy="8" r="3" fill="#2196F3"/><circle cx="5" cy="9" r="3" fill="#F59E0B"/><circle cx="25" cy="26" r="3" fill="#F59E0B"/><path d="M13 13 7 10.5M19.5 13.5 25 9.5M19 19.5l4.5 4.5" stroke="#E8F7F9" stroke-width="1.6"/></svg></span>
+    <span class="brand-txt">Neuron AI<small>Financial Model</small></span>
+  </a>
+  <div class="side-nav">
+    <div class="side-group">Financial Overview</div>
+    <a class="side-link" data-target="#top" role="link" tabindex="0"><span class="sl-dot"></span>Executive Summary</a>
+    <a class="side-link" data-target="#tam" role="link" tabindex="0"><span class="sl-dot"></span>Multi-Vertical TAM</a>
+    <a class="side-link" data-target="#pricing" role="link" tabindex="0"><span class="sl-dot"></span>Pricing & ARPU</a>
+    <a class="side-link" data-target="#competitors" role="link" tabindex="0"><span class="sl-dot"></span>Competitor Intelligence</a>
+    
+    <div class="side-group">Unit Economics & Run Rate</div>
+    <a class="side-link" data-target="#economics" role="link" tabindex="0"><span class="sl-dot"></span>Unit Economics & CAC</a>
+    <a class="side-link" data-target="#simulator" role="link" tabindex="0"><span class="sl-dot"></span>Live Revenue Simulator</a>
+    <a class="side-link" data-target="#projections" role="link" tabindex="0"><span class="sl-dot"></span>5-Year Financial Roadmap</a>
+    <a class="side-link" data-target="#ask" role="link" tabindex="0"><span class="sl-dot"></span>The Investment Ask</a>
+  </div>
+  <div class="side-progress"><div class="sp-track"><span id="sideProg"></span></div><span class="sp-lbl" id="sideProgLbl">0% read</span></div>
+  <a class="cta-mini" data-target="#ask" role="link" tabindex="0">View The Ask ↓</a>
+</nav>
+
+<header class="m-head">
+  <span class="m-brand"><span class="brand-ring"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="5" fill="#00BCD4"/><circle cx="27" cy="8" r="3" fill="#2196F3"/><circle cx="5" cy="9" r="3" fill="#F59E0B"/><circle cx="25" cy="26" r="3" fill="#F59E0B"/><path d="M13 13 7 10.5M19.5 13.5 25 9.5M19 19.5l4.5 4.5" stroke="#E8F7F9" stroke-width="1.6"/></svg></span>Neuron AI Financials</span>
+  <button class="m-menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">Menu</button>
+</header>
+<div class="backdrop" id="backdrop"></div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="salutation reveal visible">Confidential Financial Intelligence Memo</p>
+    <h1 class="reveal visible">Unit Economics, Multi-Vertical TAM &amp; <span class="hl">Valuation Trajectory</span></h1>
+    <p class="lede reveal visible">A data-driven financial model demonstrating how Neuron AI scales from a high-margin Medical beachhead into a <strong>₹1,080+ Crore ARR ($130M+ USD)</strong> Universal Academic Operating System with 80%+ software gross margins.</p>
+    
+    <div class="hero-actions reveal visible">
+      <a class="btn btn-primary" data-target="#simulator" role="link" tabindex="0">Interactive Revenue Calculator ↓</a>
+      <a class="btn btn-ghost" data-target="#competitors" role="link" tabindex="0">Competitor Revenue Audit</a>
+    </div>
+
+    <div class="kpi-band reveal">
+      <div class="kpi-grid">
+        <div class="kpi-item">
+          <div class="kpi-num">₹<span class="counter" data-target="900">0</span> <span class="unit">/mo</span></div>
+          <div class="lbl">Blended ARPU (₹10,800/yr per student)</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-num">₹<span class="counter" data-target="27" data-decimals="1">0</span> <span class="unit">Cr ARR</span></div>
+          <div class="lbl">Year 2 Run-Rate (25k Paid Students)</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-num">₹<span class="counter" data-target="1080">0</span> <span class="unit">Cr ARR</span></div>
+          <div class="lbl">10 Lakh Users @ 4.1% TAM Scale ($130M)</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-num">₹<span class="counter" data-target="8640">0</span> <span class="unit">Cr</span></div>
+          <div class="lbl">Unicorn Valuation (8x SaaS Multiple)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 1. Multi-Vertical Addressable TAM -->
+<section id="tam">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Addressable Market & Scale</span>
+      <h2>Multi-Vertical TAM: 2.45 Crore (24.5M) Annual Aspirant Pool</h2>
+      <p>When accounting for fresh candidates, repeaters, 11th–12th foundation cohorts, and allied state tests, India's high-stakes test-prep economy exceeds <strong>2.45 Crore students annually</strong>. Achieving 10 Lakh paid subscribers requires capturing just <strong>3% to 5% of this motivated pool</strong>.</p>
+    </div>
+
+    <div class="card reveal" style="border-left:4px solid var(--cyan);background:var(--elev)">
+      <span class="eyebrow" style="margin-bottom:.3rem">Expanded Multi-Vertical Student Pool</span>
+      <h3 style="font-size:1.15rem;margin-bottom:.6rem">Annual High-Stakes Exam Volume Breakdown</h3>
+      <p style="font-size:.9rem;margin-bottom:.8rem">All figures incorporate primary entrance applicants plus active multi-year repeaters and collegiate cohorts:</p>
+      
+      <div class="tbl-wrap">
+        <table class="memory-table">
+          <thead>
+            <tr>
+              <th>Vertical / Exam Domain</th>
+              <th>Key Examination Subsets</th>
+              <th>Expanded Annual Pool</th>
+              <th>Neuron AI Target (3%–5%)</th>
+              <th>Projected ARR Contribution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Medical Licensure &amp; UG</strong></td>
+              <td>NEET-UG, NEET-PG, INI-CET, FMGE, USMLE, PLAB</td>
+              <td><strong>50,00,000 (5.0M)</strong></td>
+              <td><span class="badge badge-cyan">2,50,000 (5.0%)</span></td>
+              <td><strong>₹270.0 Crore</strong></td>
+            </tr>
+            <tr>
+              <td><strong>2. Engineering &amp; Technical</strong></td>
+              <td>JEE Mains/Adv, GATE, State Engineering CETs</td>
+              <td><strong>50,00,000 (5.0M)</strong></td>
+              <td><span class="badge badge-cyan">3,00,000 (6.0%)</span></td>
+              <td><strong>₹324.0 Crore</strong></td>
+            </tr>
+            <tr>
+              <td><strong>3. Civil Services, Defense &amp; Govt</strong></td>
+              <td>UPSC CSE, State PSCs, SSC (CGL/CHSL), Banking, RRB</td>
+              <td><strong>1,00,00,000 (10.0M)</strong></td>
+              <td><span class="badge badge-cyan">2,50,000 (2.5%)</span></td>
+              <td><strong>₹270.0 Crore</strong></td>
+            </tr>
+            <tr>
+              <td><strong>4. Law, MBA &amp; Global Aptitude</strong></td>
+              <td>CLAT, CAT, XAT, GMAT, GRE, IELTS, SAT</td>
+              <td><strong>25,00,000 (2.5M)</strong></td>
+              <td><span class="badge badge-cyan">1,00,000 (4.0%)</span></td>
+              <td><strong>₹108.0 Crore</strong></td>
+            </tr>
+            <tr>
+              <td><strong>5. Finance &amp; Professional</strong></td>
+              <td>CA (Foundation/Inter/Final), CS, CMA, CFA, CPA</td>
+              <td><strong>20,00,000 (2.0M)</strong></td>
+              <td><span class="badge badge-cyan">1,00,000 (5.0%)</span></td>
+              <td><strong>₹108.0 Crore</strong></td>
+            </tr>
+            <tr style="background:var(--cyan-soft);font-weight:700">
+              <td colspan="2" style="color:var(--ink-2)">Total Addressable Market (TAM)</td>
+              <td style="color:var(--ink-2);font-family:var(--mono)">2,45,00,000 (2.45 Cr)</td>
+              <td style="color:var(--ink-2);font-family:var(--mono)">10,00,000 Users (4.1%)</td>
+              <td style="color:var(--ink-2);font-family:var(--mono);font-size:1rem">₹1,080.0 Crore ARR</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3% to 5% Sensitivity Table -->
+    <div class="card reveal" style="margin-top:1.4rem;border-left:4px solid var(--emerald);background:var(--elev)">
+      <span class="eyebrow" style="margin-bottom:.3rem">Market Penetration Sensitivity</span>
+      <h3 style="font-size:1.15rem;margin-bottom:.6rem">3% to 5% Adoption Scenarios Across the 2.45 Crore Pool</h3>
+      <p style="font-size:.9rem;margin-bottom:.8rem">Modeled at our blended ARPU of ₹900/month (₹10,800/year):</p>
+      
+      <div class="tbl-wrap">
+        <table class="memory-table">
+          <thead>
+            <tr>
+              <th>Penetration Scenario</th>
+              <th>Paid Subscriber Base</th>
+              <th>Monthly Recurring Revenue (MRR)</th>
+              <th>Annual Run Rate (ARR)</th>
+              <th>Valuation @ 8x SaaS Multiple</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Conservative (3.0% Market Capture)</strong></td>
+              <td>7,35,000 Paid Students</td>
+              <td>₹66.15 Crore / mo</td>
+              <td><strong>₹793.8 Crore (~$96M USD)</strong></td>
+              <td>₹6,350 Crore ($765M)</td>
+            </tr>
+            <tr style="background:var(--emerald-soft)">
+              <td><strong>Target Milestone (4.1% Market Capture)</strong></td>
+              <td><strong>10,00,000 Paid Students (10L)</strong></td>
+              <td><strong>₹90.00 Crore / mo</strong></td>
+              <td><strong style="color:var(--emerald)">₹1,080.0 Crore (~$130M USD)</strong></td>
+              <td style="color:var(--emerald);font-weight:700">₹8,640 Crore ($1.05B — Unicorn)</td>
+            </tr>
+            <tr>
+              <td><strong>Aggressive Leadership (5.0% Market Capture)</strong></td>
+              <td>12,25,000 Paid Students</td>
+              <td>₹110.25 Crore / mo</td>
+              <td><strong>₹1,323.0 Crore (~$160M USD)</strong></td>
+              <td>₹10,584 Crore ($1.28B)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Pricing & ARPU Architecture -->
+<section id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Monetization & Pricing Strategy</span>
+      <h2>4-Tier Monthly Subscription Ladder &amp; ARPU Model</h2>
+      <p>Instead of rigid ₹35,000–₹50,000 upfront annual fees, Neuron AI provides monthly flexibility. A natural conversion curve delivers a <strong>blended ARPU of ~₹900/month (₹10,800/year)</strong>.</p>
+    </div>
+
+    <div class="card reveal" style="border-left:4px solid var(--blue);background:var(--elev)">
+      <span class="eyebrow" style="margin-bottom:.3rem">Mathematical Model · Tier Conversion Weighting</span>
+      <h3 style="font-size:1.15rem;margin-bottom:.6rem">Blended Weighted ARPU Calculation</h3>
+      
+      <div class="tbl-wrap">
+        <table class="memory-table">
+          <thead>
+            <tr>
+              <th>Plan Tier</th>
+              <th>Monthly Fee</th>
+              <th>Annual Equivalent</th>
+              <th>Projected User Mix</th>
+              <th>Weighted Monthly Contribution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tier 1: Foundation</strong> (Adaptive Scheduler, PYQs)</td>
+              <td>₹499 / mo</td>
+              <td>₹5,988 / yr</td>
+              <td>50% of users</td>
+              <td>₹249.50</td>
+            </tr>
+            <tr>
+              <td><strong>Tier 2: Pro Cognitive</strong> (Full Memory Room &amp; SRS)</td>
+              <td>₹999 / mo</td>
+              <td>₹11,988 / yr</td>
+              <td>30% of users</td>
+              <td>₹299.70</td>
+            </tr>
+            <tr>
+              <td><strong>Tier 3: Advanced Simulation</strong> (Clinical Cases &amp; Traps)</td>
+              <td>₹1,497 / mo</td>
+              <td>₹17,964 / yr</td>
+              <td>15% of users</td>
+              <td>₹224.55</td>
+            </tr>
+            <tr>
+              <td><strong>Tier 4: Mastery &amp; Mentorship</strong> (Faculty Dream Team)</td>
+              <td>₹2,497 / mo</td>
+              <td>₹29,964 / yr</td>
+              <td>5% of users</td>
+              <td>₹124.85</td>
+            </tr>
+            <tr style="background:var(--blue-soft);font-weight:700">
+              <td colspan="3" style="color:var(--blue)">Blended Weighted Monthly ARPU</td>
+              <td style="color:var(--blue)">100% Mix</td>
+              <td style="color:var(--blue);font-family:var(--mono);font-size:1rem">~₹898.60 ≈ ₹900 / month (₹10,800/yr)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.86rem;color:var(--muted);margin-top:.6rem">★ Compared to Marrow charging ₹35,000–₹50,000 upfront, Neuron AI is 70% more affordable for students while generating predictable, recurring SaaS cash flows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Competitor Intelligence & Benchmarks -->
+<section id="competitors" class="dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Verified Competitor Intelligence</span>
+      <h2>Audited Financial Benchmarks: Proving the Willingness-to-Pay</h2>
+      <p style="color:#A0A3AD">Live financial filings from Entrackr and RoC demonstrate that test prep commands the highest revenues in Indian EdTech. Incumbents struggle with physical infrastructure capex, while Neuron AI operates as pure high-margin AI software.</p>
+    </div>
+
+    <div class="card reveal" style="background:#232438;border:none;border-left:4px solid var(--marigold)">
+      <span class="eyebrow" style="color:var(--marigold);margin-bottom:.3rem">Audited Financial Comparables (FY24 / FY25)</span>
+      <h3 style="font-size:1.15rem;margin-bottom:.6rem;color:#fff">Incumbent Revenue &amp; Operating Model Reality Check</h3>
+      
+      <div class="tbl-wrap" style="background:#1C1C1E;border-color:rgba(255,255,255,.1)">
+        <table class="memory-table">
+          <thead>
+            <tr>
+              <th style="background:#141416">Company / Platform</th>
+              <th style="background:#141416">Reported Operating Financials</th>
+              <th style="background:#141416">Core Cost Center &amp; Vulnerability</th>
+              <th style="background:#141416">Neuron AI Strategic Advantage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:#fff"><strong>Marrow (DailyRounds)</strong></td>
+              <td style="color:#4DD0E1;font-weight:600">₹568 Cr Revenue (FY24) → ₹641 Cr (FY25)<br><span style="color:#10B981">₹320 Cr to ₹363 Cr Net Profit (56% PAT margin!)</span></td>
+              <td style="color:#A0A3AD">Single-vertical medical PG only. Passive video dump with zero dynamic memory modeling.</td>
+              <td style="color:#fff">Closes the cognitive loop with Memory Science and scales horizontally across 5 multi-billion verticals.</td>
+            </tr>
+            <tr>
+              <td style="color:#fff"><strong>PhysicsWallah</strong></td>
+              <td style="color:#4DD0E1;font-weight:600">₹2,015 Cr Total Revenue (FY24)<br><span style="color:#EF4444">₹3,279 Cr Total Expenditure (Loss ₹1,131 Cr)</span></td>
+              <td style="color:#A0A3AD">Massive offline coaching center expansion (₹1,159 Cr employee benefits alone).</td>
+              <td style="color:#fff">100% pure software architecture with zero physical real estate lease or construction burden.</td>
+            </tr>
+            <tr>
+              <td style="color:#fff"><strong>Allen Career Institute</strong></td>
+              <td style="color:#4DD0E1;font-weight:600">₹3,473 Cr Total Revenue (FY24)<br><span style="color:#F59E0B">₹135.9 Cr Net Profit (Expenses ₹3,252 Cr)</span></td>
+              <td style="color:#A0A3AD">Extreme brick-and-mortar overhead (₹1,958 Cr faculty &amp; staff costs).</td>
+              <td style="color:#fff">Autonomous 24/7 AI tutor &amp; dynamic scheduler scaling without adding linear payroll.</td>
+            </tr>
+            <tr>
+              <td style="color:#fff"><strong>Aakash Educational Services</strong></td>
+              <td style="color:#4DD0E1;font-weight:600">₹2,438 Cr Revenue (FY24)<br><span style="color:#EF4444">Loss ₹2,443 Cr (exceptional write-offs)</span></td>
+              <td style="color:#A0A3AD">Heavy physical center network weighed down by parent Byju's financial distress.</td>
+              <td style="color:#fff">Independent, debt-free, capital-efficient multi-tenant SaaS.</td>
+            </tr>
+            <tr>
+              <td style="color:#fff"><strong>Global Peers (UWorld / Amboss)</strong></td>
+              <td style="color:#4DD0E1;font-weight:600">UWorld: ~$140M ARR (>₹1,160 Cr) @ 60% EBITDA<br>Amboss: ~$75M ARR (>₹620 Cr)</td>
+              <td style="color:#A0A3AD">Static question banks without real-time predictive counseling or dynamic timetables.</td>
+              <td style="color:#fff">Unified closed loop: Predictive + Cognitive + Adaptive + Generative AI.</td>
+            </tr>
+            <tr style="background:rgba(235,147,58,.15);font-weight:700">
+              <td style="color:var(--marigold)"><strong>Neuron AI Scale Target</strong></td>
+              <td style="color:var(--marigold);font-family:var(--mono)"><strong>₹1,080 Cr ARR ($130M USD)</strong></td>
+              <td colspan="2" style="color:#fff"><strong>80%+ Gross Margin Software Economics at ~4.1% Multi-Vertical Market Penetration</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Unit Economics & CAC/LTV -->
+<section id="economics">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Efficiency Benchmarks</span>
+      <h2>Industry-Leading Unit Economics</h2>
+      <p>Combining targeted paid acquisition with viral free diagnostic tools generates a blended Customer Acquisition Cost (CAC) under ₹1,500 and a <strong>12x to 16x LTV:CAC ratio</strong>.</p>
+    </div>
+
+    <div class="grid g-3 stagger">
+      <div class="card" style="border-left:4px solid var(--cyan)">
+        <span class="badge badge-cyan" style="margin-bottom:.5rem">Customer Acquisition</span>
+        <h3>Blended CAC &lt; ₹1,500</h3>
+        <p>Achieved through paid performance marketing + campus ambassador networks + viral peer diagnostic sharing.</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--emerald)">
+        <span class="badge badge-emerald" style="margin-bottom:.5rem">Lifetime Value</span>
+        <h3>Student LTV: ₹18,000–₹22,000</h3>
+        <p>Multi-year preparation lifespan (18 to 24 months) across UG, PG, and secondary attempt cycles.</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--marigold)">
+        <span class="badge badge-marigold" style="margin-bottom:.5rem">Efficiency Multiplier</span>
+        <h3>LTV : CAC &gt; 12:1</h3>
+        <p>Payback period is under 1.25 months, significantly outperforming the 3:1 SaaS benchmark.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Interactive Revenue & Valuation Simulator -->
+<section id="simulator" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive Financial Engine</span>
+      <h2>Live Revenue &amp; Valuation Simulator</h2>
+      <p>Adjust the active subscriber slider, blended ARPU, and valuation multiple to model real-time MRR, ARR, and enterprise valuation.</p>
+    </div>
+
+    <div class="calc-card reveal">
+      <div class="calc-grid">
+        <div>
+          <!-- Slider 1: Subscribers -->
+          <div class="range-group">
+            <div class="range-header">
+              <span>Active Paid Subscribers</span>
+              <span class="val" id="subVal">10,00,000 (10 Lakhs)</span>
+            </div>
+            <input type="range" id="subSlider" min="10000" max="1500000" step="10000" value="1000000">
+            <small style="font-size:.72rem;color:var(--muted)">Range: 10,000 to 15,00,000 users</small>
+          </div>
+
+          <!-- Slider 2: ARPU -->
+          <div class="range-group">
+            <div class="range-header">
+              <span>Blended Monthly ARPU (₹)</span>
+              <span class="val" id="arpuVal">₹900 / mo</span>
+            </div>
+            <input type="range" id="arpuSlider" min="499" max="1500" step="25" value="900">
+            <small style="font-size:.72rem;color:var(--muted)">Base Plan ₹499/mo to Advanced Plan ₹1,497/mo</small>
+          </div>
+
+          <!-- Slider 3: Multiple -->
+          <div class="range-group">
+            <div class="range-header">
+              <span>ARR Valuation Multiple</span>
+              <span class="val" id="multVal">8.0x SaaS Benchmark</span>
+            </div>
+            <input type="range" id="multSlider" min="4" max="12" step="0.5" value="8">
+            <small style="font-size:.72rem;color:var(--muted)">EdTech base (4x) to AI Platform Premium (12x)</small>
+          </div>
+        </div>
+
+        <div class="calc-results">
+          <div class="res-item">
+            <div class="r-lbl">Monthly Recurring Revenue (MRR)</div>
+            <div class="r-val" id="mrrOut">₹90.0 <span class="unit">Crore / mo</span></div>
+          </div>
+          <div class="res-item">
+            <div class="r-lbl">Annual Recurring Revenue (ARR)</div>
+            <div class="r-val" id="arrOut">₹1,080.0 <span class="unit">Crore (~$130M USD)</span></div>
+          </div>
+          <div class="res-item">
+            <div class="r-lbl">Estimated Enterprise Valuation</div>
+            <div class="r-val" id="valTotal" style="color:#F59E0B">₹8,640 <span class="unit">Crore</span></div>
+            <small id="unicornTag" style="font-family:var(--mono);font-size:.74rem;color:#10B981;font-weight:600;margin-top:.2rem;display:block">★ Solid "Unicorn" Status (~$1.05 Billion USD)</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 5-Year Multi-Year Run-Rate Roadmap -->
+<section id="projections" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Multi-Year Trajectory</span>
+      <h2>5-Year Financial &amp; Vertical Expansion Roadmap</h2>
+      <p>A structured execution path scaling from Medical licensure beachhead to universal multi-vertical market capture.</p>
+    </div>
+
+    <div class="card reveal" style="border-left:4px solid var(--cyan);background:var(--elev)">
+      <div class="tbl-wrap">
+        <table class="memory-table">
+          <thead>
+            <tr>
+              <th>Fiscal Horizon</th>
+              <th>Primary Target Verticals</th>
+              <th>Paid Users</th>
+              <th>Monthly MRR</th>
+              <th>Annual ARR</th>
+              <th>Target Valuation (8x)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Year 1 (Beachhead)</strong></td>
+              <td>NEET-PG, INI-CET (Closed Beta + Public Launch)</td>
+              <td><strong>5,000</strong></td>
+              <td>₹45 Lakh</td>
+              <td><strong>₹5.4 Crore ($650k)</strong></td>
+              <td>₹43 Crore</td>
+            </tr>
+            <tr>
+              <td><strong>Year 2 (Pan-India MedEd)</strong></td>
+              <td>NEET-PG + NEET-UG + USMLE Step 1</td>
+              <td><strong>25,000</strong></td>
+              <td>₹2.25 Crore</td>
+              <td><strong>₹27.0 Crore ($3.25M)</strong></td>
+              <td>₹216 Crore</td>
+            </tr>
+            <tr>
+              <td><strong>Year 3 (Multi-Vertical Expansion)</strong></td>
+              <td>Medical + JEE Mains/Adv + CLAT (Law)</td>
+              <td><strong>80,000</strong></td>
+              <td>₹7.20 Crore</td>
+              <td><strong>₹86.4 Crore ($10.4M)</strong></td>
+              <td>₹691 Crore</td>
+            </tr>
+            <tr>
+              <td><strong>Year 4 (National Scale)</strong></td>
+              <td>UPSC Civil Services + CA Finance + GATE</td>
+              <td><strong>2,50,000</strong></td>
+              <td>₹22.50 Crore</td>
+              <td><strong>₹270.0 Crore ($32.5M)</strong></td>
+              <td>₹2,160 Crore</td>
+            </tr>
+            <tr style="background:var(--emerald-soft);font-weight:700">
+              <td style="color:var(--emerald)"><strong>Year 5 (Universal Learning OS)</strong></td>
+              <td style="color:var(--emerald)">Full Multi-Vertical &amp; Global Expansion (10L Scale)</td>
+              <td style="color:var(--emerald);font-family:var(--mono)"><strong>10,00,000</strong></td>
+              <td style="color:var(--emerald);font-family:var(--mono)">₹90.00 Crore</td>
+              <td style="color:var(--emerald);font-family:var(--mono);font-size:1rem">₹1,080.0 Crore ($130M)</td>
+              <td style="color:var(--emerald);font-family:var(--mono);font-size:1rem">₹8,640 Crore ($1.05B)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. The Investment Ask -->
+<section id="ask" class="dark" style="padding-bottom:90px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Capital Requirement</span>
+      <h2>The Investment Ask: ₹10 Crore Milestone-Gated Round</h2>
+      <p style="color:#A0A3AD">Capital is drawn in milestone-gated tranches, de-risking investor capital at every checkpoint while funding product engineering, content pipelines, and GTM distribution.</p>
+    </div>
+
+    <div class="grid g-2 stagger">
+      <div class="card" style="background:#232438;border:none;border-left:4px solid var(--cyan)">
+        <span class="eyebrow" style="color:var(--cyan);margin-bottom:.3rem">Milestone Tranches</span>
+        <h3 style="color:#fff;font-size:1.15rem;margin-bottom:.8rem">Phased Drawdown Schedule</h3>
+        
+        <div class="alloc">
+          <div class="alloc-item">
+            <span class="amt" style="color:#4DD0E1">Tranche 1 · ₹1 Cr</span>
+            <div>
+              <div style="font-size:.84rem;color:#E8EAEF;margin-bottom:.25rem">App Dev, RAG Engine &amp; 500-Student Closed Beta</div>
+              <div class="alloc-bar"><span data-w="10%"></span></div>
+            </div>
+          </div>
+          <div class="alloc-item">
+            <span class="amt" style="color:var(--marigold)">Tranche 2 · ₹2 Cr</span>
+            <div>
+              <div style="font-size:.84rem;color:#E8EAEF;margin-bottom:.25rem">Content Engine, Faculty Models &amp; Public Launch</div>
+              <div class="alloc-bar"><span data-w="20%" style="background:var(--marigold)"></span></div>
+            </div>
+          </div>
+          <div class="alloc-item">
+            <span class="amt" style="color:var(--blue)">Tranche 3 · ₹7 Cr</span>
+            <div>
+              <div style="font-size:.84rem;color:#E8EAEF;margin-bottom:.25rem">Operations, Marketing Scaling &amp; Multi-Vertical Engineering</div>
+              <div class="alloc-bar"><span data-w="70%" style="background:var(--blue)"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="background:#232438;border:none;border-left:4px solid var(--emerald)">
+        <span class="eyebrow" style="color:var(--emerald);margin-bottom:.3rem">Founding Team &amp; Contact</span>
+        <h3 style="color:#fff;font-size:1.15rem;margin-bottom:.6rem">Ready to Partner</h3>
+        <p style="color:#A0A3AD;font-size:.9rem;margin-bottom:1.1rem">We invite you to join us as an early strategic partner and mentor as we build India's premier autonomous academic operating system.</p>
+        
+        <div style="display:grid;gap:.8rem;font-family:var(--mono);font-size:.85rem">
+          <div style="background:#1C1C1E;padding:.75rem 1rem;border-radius:10px;border-left:3px solid var(--cyan)">
+            <strong style="color:#fff;display:block">Tarun Reddy · Co-Founder (Tech &amp; AI Systems)</strong>
+            <a href="tel:+919849726969" style="color:#4DD0E1;text-decoration:none">📞 +91 98497 26969</a> · <span style="color:#8E919D">tarunreddy19@gmail.com</span>
+          </div>
+          <div style="background:#1C1C1E;padding:.75rem 1rem;border-radius:10px;border-left:3px solid var(--marigold)">
+            <strong style="color:#fff;display:block">Dr. Bhoomigari Manoj · Co-Founder (MBBS, MD Clinical Lead)</strong>
+            <a href="tel:+918686966868" style="color:var(--marigold);text-decoration:none">📞 +91 86869 66868</a> · <span style="color:#8E919D">founders@superneuron.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">NEURON AI · FINANCIAL INTELLIGENCE MEMO · CONFIDENTIAL INVESTOR PORTFOLIO · 2026</div>
+
+<script>
+// Scroll Progress Bar with RAF
+const fillBar=document.getElementById('scrollFill');
+let scrollTicking=false;
+function onScroll(){
+  if(!scrollTicking){
+    window.requestAnimationFrame(()=>{
+      const h=document.documentElement;
+      const p=h.scrollTop/(h.scrollHeight-h.clientHeight);
+      if(fillBar)fillBar.style.width=(p*100)+'%';
+      const sp=document.getElementById('sideProg'),spl=document.getElementById('sideProgLbl');
+      if(sp){sp.style.width=(p*100)+'%';if(spl)spl.textContent=Math.round(p*100)+'% read';}
+      updateNav();
+      scrollTicking=false;
+    });
+    scrollTicking=true;
+  }
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+
+// Reveal Animations
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.alloc-bar span').forEach(s=>{requestAnimationFrame(()=>s.style.width=s.dataset.w)});
+      e.target.querySelectorAll('.counter').forEach(runCounter);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
+
+// Number Counter Animation
+function runCounter(el){
+  if(el.dataset.done)return;el.dataset.done=1;
+  const target=parseFloat(el.dataset.target),dec=parseInt(el.dataset.decimals||0),suf=el.dataset.suffix||'';
+  const dur=1400,start=performance.now();
+  function fmt(v){return dec>0?v.toFixed(dec):Math.round(v).toLocaleString('en-IN')}
+  function tick(now){
+    const p=Math.min((now-start)/dur,1),ease=1-Math.pow(1-p,3);
+    el.textContent=fmt(target*ease)+(p===1?suf:'');
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+// Sidebar Navigation Scroll Tracking
+const navLinks=[...document.querySelectorAll('.side-link')];
+const navSections=navLinks.map(a=>document.querySelector(a.dataset.target));
+function updateNav(){
+  let idx=0;
+  navSections.forEach((sec,i)=>{if(sec&&sec.getBoundingClientRect().top<window.innerHeight*0.45)idx=i});
+  navLinks.forEach((a,i)=>a.classList.toggle('on',i===idx));
+}
+
+// In-Page Navigation
+function navGo(sel){
+  const t=document.querySelector(sel);
+  if(t){
+    const yOffset=window.innerWidth<=900?-64:0;
+    const y=t.getBoundingClientRect().top+window.pageYOffset+yOffset;
+    window.scrollTo({top:y,behavior:'smooth'});
+  }
+}
+const sideEl=document.querySelector('.sidebar'),backdropEl=document.getElementById('backdrop'),menuBtn=document.getElementById('menuBtn');
+function closeDrawer(){
+  if(!sideEl)return;
+  sideEl.classList.remove('open');
+  if(backdropEl)backdropEl.classList.remove('show');
+  if(menuBtn)menuBtn.setAttribute('aria-expanded','false');
+}
+if(menuBtn){
+  menuBtn.addEventListener('click',()=>{
+    const open=sideEl.classList.toggle('open');
+    if(backdropEl)backdropEl.classList.toggle('show',open);
+    menuBtn.setAttribute('aria-expanded',open);
+  });
+}
+if(backdropEl){backdropEl.addEventListener('click',closeDrawer);}
+document.querySelectorAll('[data-target]').forEach(a=>{
+  const go=e=>{e.preventDefault();e.stopPropagation();navGo(a.dataset.target);closeDrawer();};
+  a.addEventListener('click',go);
+  a.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')go(e);});
+});
+
+// Interactive Financial Calculator Logic
+const subSlider=document.getElementById('subSlider'),subVal=document.getElementById('subVal');
+const arpuSlider=document.getElementById('arpuSlider'),arpuVal=document.getElementById('arpuVal');
+const multSlider=document.getElementById('multSlider'),multVal=document.getElementById('multVal');
+const mrrOut=document.getElementById('mrrOut'),arrOut=document.getElementById('arrOut'),valTotal=document.getElementById('valTotal'),unicornTag=document.getElementById('unicornTag');
+
+function updateCalculator(){
+  const subs=parseInt(subSlider.value);
+  const arpu=parseInt(arpuSlider.value);
+  const mult=parseFloat(multSlider.value);
+  
+  subVal.textContent=subs>=100000?(subs/100000).toFixed(subs%100000===0?0:1)+' Lakh ('+(subs/1000000).toFixed(2)+'M)':subs.toLocaleString('en-IN');
+  arpuVal.textContent='₹'+arpu+' / mo';
+  multVal.textContent=mult.toFixed(1)+'x Multiple';
+  
+  const mrrCr=(subs*arpu)/10000000;
+  const arrCr=mrrCr*12;
+  const valCr=arrCr*mult;
+  const arrUsd=(arrCr/83);
+  
+  mrrOut.innerHTML='₹'+mrrCr.toFixed(1)+' <span class="unit">Crore / mo</span>';
+  arrOut.innerHTML='₹'+arrCr.toFixed(1)+' <span class="unit">Crore (~$'+arrUsd.toFixed(0)+'M USD)</span>';
+  valTotal.innerHTML='₹'+Math.round(valCr).toLocaleString('en-IN')+' <span class="unit">Crore</span>';
+  
+  if(valCr>=8300){
+    unicornTag.textContent='★ Solid "Unicorn" Status (~$'+(valCr/8300).toFixed(2)+'B USD)';
+    unicornTag.style.color='#10B981';
+  } else if(valCr>=4000){
+    unicornTag.textContent='★ Nearing "Unicorn" Status (~$'+(valCr/8300).toFixed(2)+'B USD)';
+    unicornTag.style.color='#F59E0B';
+  } else {
+    unicornTag.textContent='High-Growth Venture Scale (~$'+(valCr/8300*1000).toFixed(0)+'M USD)';
+    unicornTag.style.color='#4DD0E1';
+  }
+}
+
+[subSlider,arpuSlider,multSlider].forEach(input=>input.addEventListener('input',updateCalculator));
+updateCalculator();
+onScroll();
+</script>
+</body>
+</html>
