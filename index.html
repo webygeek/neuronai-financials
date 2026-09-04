@@ -212,12 +212,28 @@ input[type=range]::-webkit-slider-thumb:hover,input[type=range]::-webkit-slider-
 section.dark .card{background:#232438;border:1px solid rgba(255,255,255,.09)!important;border-radius:18px}
 section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11)!important}
 
-/* Allocation & Progress Bars */
-.alloc{display:grid;gap:.85rem;margin-top:1.1rem}
-.alloc-item{display:grid;grid-template-columns:110px 1fr;gap:1rem;align-items:center;font-size:.88rem}
-.alloc-item .amt{font-family:var(--mono);color:var(--ink);font-weight:600}
-.alloc-bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
-.alloc-bar span{display:block;height:100%;border-radius:999px;background:var(--grad);width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+/* 60-Second Executive Summary Cards */
+.tldr-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.9rem;margin-top:1.6rem}
+@media(max-width:992px){.tldr-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.tldr-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.tldr-grid{grid-template-columns:1fr}}
+.tldr-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.1rem 1rem;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,box-shadow .2s}
+.tldr-card:hover{transform:translateY(-2px);background:var(--elev);box-shadow:0 10px 24px rgba(26,27,46,.06)}
+.tldr-pill{font-family:var(--mono);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem;display:block}
+.tldr-big{font-family:var(--display);font-size:1.45rem;font-weight:800;color:var(--ink);line-height:1.1;margin-bottom:.3rem}
+.tldr-desc{font-size:.78rem;color:var(--slate);line-height:1.35}
+
+/* In Plain English Takeaway Callout */
+.plain-box{background:linear-gradient(135deg,rgba(0,188,212,.08),rgba(33,150,243,.04));border:1px solid rgba(0,188,212,.25);border-left:4px solid var(--cyan);border-radius:12px;padding:.85rem 1.1rem;margin-bottom:1.4rem;display:flex;align-items:flex-start;gap:.8rem}
+.dark .plain-box{background:rgba(0,188,212,.1);border-color:rgba(0,188,212,.3);border-left-color:#4DD0E1}
+.plain-tag{font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;background:var(--cyan);color:#04262C;padding:.2rem .5rem;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:.1rem}
+.plain-text{font-size:.88rem;color:var(--ink);line-height:1.45;font-weight:500}
+.dark .plain-text{color:#E8EAEF}
+
+/* Visual Unit Economics Receipt */
+.receipt-card{background:var(--elev);border:1px solid var(--line);border-radius:18px;padding:1.4rem 1.6rem;box-shadow:0 10px 24px rgba(26,27,46,.04)}
+.receipt-line{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px dashed var(--line);font-size:.88rem}
+.receipt-line:last-child{border-bottom:none}
 
 /* Footer */
 .footer{background:#052228;color:#6E9296;font-size:.76rem;padding:1.4rem 0;text-align:center;font-family:var(--mono)}
@@ -292,6 +308,55 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
         </div>
       </div>
     </div>
+
+    <!-- 60-Second Executive Summary Deck -->
+    <div class="reveal" style="margin-top:2.2rem">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;margin-bottom:.8rem">
+        <span class="eyebrow" style="margin-bottom:0">60-Second Investor Summary</span>
+        <span style="font-family:var(--mono);font-size:.72rem;color:var(--muted)">The 5 numbers every investor needs to know:</span>
+      </div>
+      <div class="tldr-grid">
+        <div class="tldr-card" style="border-left:3.5px solid var(--cyan)">
+          <div>
+            <span class="tldr-pill" style="color:var(--cyan)">1. The Product</span>
+            <div class="tldr-big">₹900 <span style="font-size:.82rem;font-weight:600;color:var(--muted)">/mo</span></div>
+          </div>
+          <p class="tldr-desc">Affordable B2C SaaS subscription with high willingness-to-pay (70% cheaper than Marrow).</p>
+        </div>
+
+        <div class="tldr-card" style="border-left:3.5px solid var(--emerald)">
+          <div>
+            <span class="tldr-pill" style="color:var(--emerald)">2. Profit Margin</span>
+            <div class="tldr-big" style="color:var(--emerald)">88% <span style="font-size:.82rem;font-weight:600;color:var(--muted)">Margin</span></div>
+          </div>
+          <p class="tldr-desc">₹109 total AI &amp; cloud cost per student ➔ <strong>₹791 net gross profit</strong> per student.</p>
+        </div>
+
+        <div class="tldr-card" style="border-left:3.5px solid var(--blue)">
+          <div>
+            <span class="tldr-pill" style="color:var(--blue)">3. Beachhead</span>
+            <div class="tldr-big" style="color:var(--blue)">₹27 Cr <span style="font-size:.82rem;font-weight:600;color:var(--muted)">ARR</span></div>
+          </div>
+          <p class="tldr-desc">Year 2 milestone target: 25,000 paid medical students in India alone.</p>
+        </div>
+
+        <div class="tldr-card" style="border-left:3.5px solid var(--marigold)">
+          <div>
+            <span class="tldr-pill" style="color:var(--marigold)">4. Market Scale</span>
+            <div class="tldr-big" style="color:#B45E09">₹1,080 Cr</div>
+          </div>
+          <p class="tldr-desc">Capturing just 4% of India's 2.45 Crore exam aspirants = <strong>$130M ARR &amp; $1.05B Unicorn</strong>.</p>
+        </div>
+
+        <div class="tldr-card" style="border-left:3.5px solid #8B5CF6">
+          <div>
+            <span class="tldr-pill" style="color:#8B5CF6">5. The Ask</span>
+            <div class="tldr-big" style="color:#8B5CF6">₹10 Cr</div>
+          </div>
+          <p class="tldr-desc">Milestone-gated 24-month round ➔ Cashflow breakeven at ~18k–20k paid subscribers.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -302,6 +367,12 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
       <span class="eyebrow">Executive Summary</span>
       <h2>The Three Undeniable Truths of This Investment</h2>
       <p>Three structural realities explain why Neuron AI delivers superior venture returns compared to legacy EdTech:</p>
+    </div>
+
+    <!-- Plain English Callout -->
+    <div class="plain-box reveal">
+      <span class="plain-tag">In Plain English</span>
+      <div class="plain-text">Students gladly pay premium subscription fees when exam rank dictates their career. By using pure autonomous AI instead of expensive physical coaching centers, we keep 88% gross profit and only need 4 out of 100 students across India to build a ₹1,080 Crore ARR company.</div>
     </div>
 
     <div class="truths-grid stagger">
@@ -342,6 +413,12 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
       <span class="eyebrow">Addressable Market & Scale</span>
       <h2>Multi-Vertical TAM: 2.45 Crore (24.5M) Aspirant Pool</h2>
       <p>India's high-stakes examination economy spans fresh applicants, multi-year repeaters, and foundation students across five major verticals:</p>
+    </div>
+
+    <!-- Plain English Callout -->
+    <div class="plain-box reveal">
+      <span class="plain-tag">In Plain English</span>
+      <div class="plain-text">Over 2.45 Crore students prepare for competitive exams every year in India. We do not need a monopoly—capturing just 4.1% of this audience (10 Lakh subscribers) generates ₹1,080 Crore ARR ($130M) and unlocks a ₹8,640 Crore ($1.05B) SaaS valuation.</div>
     </div>
 
     <!-- Visual Pathway Cards -->
@@ -485,6 +562,12 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
       <p style="color:#A0A3AD">Audited FY24/FY25 financials prove high Willingness-to-Pay, but expose incumbents' crushing physical center overheads:</p>
     </div>
 
+    <!-- Plain English Callout -->
+    <div class="plain-box reveal">
+      <span class="plain-tag">In Plain English</span>
+      <div class="plain-text">Marrow proved that medical students gladly pay premium subscription fees (earning ₹363 Cr net profit in Medical PG alone). Meanwhile, offline coaching giants (PW, Allen) lost money due to massive center leases and multi-thousand-crore teacher payrolls. Neuron AI operates purely in the cloud with zero offline overhead.</div>
+    </div>
+
     <div class="grid g-2 stagger">
       <div class="card" style="background:#232438;border:none;border-left:4px solid var(--emerald)">
         <span class="badge badge-emerald" style="margin-bottom:.5rem">The High-Margin Software Benchmark</span>
@@ -557,6 +640,12 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
       <p>A flexible 4-tier monthly ladder averages <strong>₹10,800 / student / year</strong> (70% cheaper than Marrow's upfront lock-in):</p>
     </div>
 
+    <!-- Plain English Callout -->
+    <div class="plain-box reveal">
+      <span class="plain-tag">In Plain English</span>
+      <div class="plain-text">We offer 4 flexible subscription plans starting from ₹499/mo up to ₹2,497/mo. As students upgrade to higher tiers for advanced clinical simulations and AI mentorship, our blended average revenue stabilizes at ~₹900/month (₹10,800/year)—70% more affordable than Marrow's ₹35,000 upfront lock-in.</div>
+    </div>
+
     <!-- 4 Tiers Cards Grid -->
     <div class="grid g-4 stagger" style="grid-template-columns:repeat(4,1fr)">
       <div class="card" style="padding:1.2rem">
@@ -598,6 +687,44 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
       <span class="eyebrow">Gross Margin & Infrastructure</span>
       <h2>AI &amp; Cloud Server Unit Economics: 88% Pure Gross Margin</h2>
       <p>A granular breakdown of the monthly Cost-of-Goods-Sold (COGS) to serve one active student paying the ₹900/month blended subscription:</p>
+    </div>
+
+    <!-- Plain English Callout -->
+    <div class="plain-box reveal">
+      <span class="plain-tag">In Plain English</span>
+      <div class="plain-text">Every ₹900 monthly subscription costs us only ₹109 in AI tokens, cloud servers, and payment processing fees, generating a pure 88% software gross margin (₹791 net gross profit per student). Even an intensive 8-hour daily power user costs under ~₹148/month.</div>
+    </div>
+
+    <!-- Visual Unit Economics Receipt Card -->
+    <div class="receipt-card reveal" style="margin-bottom:1.4rem;border-left:4px solid var(--emerald)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem">
+        <span class="eyebrow" style="margin-bottom:0">Unit Economics at a Glance (1 Active Student / Month)</span>
+        <span class="badge badge-emerald" style="font-size:.78rem;padding:.3rem .6rem">88% Pure Margin</span>
+      </div>
+      <div class="receipt-line">
+        <span style="font-weight:600;color:var(--ink)">Student Subscription Price (Blended ARPU)</span>
+        <span style="font-family:var(--mono);font-weight:700;color:var(--ink);font-size:1.05rem">+ ₹900.00 / mo</span>
+      </div>
+      <div class="receipt-line" style="color:var(--rose)">
+        <span>− AI LLM Token Inference (DeepSeek / Gemini Hybrid)</span>
+        <span style="font-family:var(--mono)">− ₹45.00 / mo (5.0%)</span>
+      </div>
+      <div class="receipt-line" style="color:var(--rose)">
+        <span>− Cloud Server &amp; Database Compute (Kubernetes, Redis, PostgreSQL)</span>
+        <span style="font-family:var(--mono)">− ₹28.00 / mo (3.1%)</span>
+      </div>
+      <div class="receipt-line" style="color:var(--rose)">
+        <span>− Video Delivery &amp; CDN Bandwidth (Cloudflare Enterprise)</span>
+        <span style="font-family:var(--mono)">− ₹18.00 / mo (2.0%)</span>
+      </div>
+      <div class="receipt-line" style="color:var(--rose)">
+        <span>− Payment Gateway &amp; UPI Auto-Debit Fees (Razorpay / Stripe)</span>
+        <span style="font-family:var(--mono)">− ₹18.00 / mo (2.0%)</span>
+      </div>
+      <div class="receipt-line" style="background:var(--emerald-soft);margin-top:.4rem;padding:.7rem .8rem;border-radius:10px;font-weight:700">
+        <span style="color:var(--emerald);font-size:1rem">Net Software Gross Profit Per Student</span>
+        <span style="color:var(--emerald);font-family:var(--mono);font-size:1.15rem">= ₹791.00 / mo (87.9% ≈ 88%)</span>
+      </div>
     </div>
 
     <div class="card reveal" style="border-left:4px solid var(--cyan);background:var(--elev)">
@@ -819,6 +946,12 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
       <p>Test your own growth assumptions. Adjust subscribers, ARPU, and multiple dynamically:</p>
     </div>
 
+    <!-- Plain English Callout -->
+    <div class="plain-box reveal">
+      <span class="plain-tag">In Plain English</span>
+      <div class="plain-text">Use the 3 interactive sliders below to test your own growth assumptions. See in real-time how our monthly cash flow (MRR), annual revenue (ARR), and company valuation scale as our paid student base grows.</div>
+    </div>
+
     <div class="calc-card reveal">
       <div class="calc-grid">
         <div>
@@ -882,6 +1015,12 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
       <p>Target return horizons on the ₹10 Crore initial milestone-gated round across successive growth checkpoints:</p>
     </div>
 
+    <!-- Plain English Callout -->
+    <div class="plain-box reveal">
+      <span class="plain-tag">In Plain English</span>
+      <div class="plain-text">A ₹10 Crore seed check targets an immediate ~3.5x to 4.5x valuation markup in Year 2 (₹216 Cr enterprise valuation at 25k users) and scales to a ~100x return at ₹8,640 Cr ($1.05B Unicorn scale), backed by clear domestic IPO and strategic global M&amp;A exit routes.</div>
+    </div>
+
     <div class="grid g-3 stagger">
       <div class="card" style="border-left:4px solid var(--cyan)">
         <span class="badge badge-cyan" style="margin-bottom:.5rem">Checkpoint 1 · 18–24 Months</span>
@@ -924,6 +1063,12 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
       <span class="eyebrow">5-Year Trajectory</span>
       <h2>Multi-Year Financial &amp; Vertical Expansion Roadmap</h2>
       <p>A de-risked milestone progression scaling from medical beachhead to universal platform:</p>
+    </div>
+
+    <!-- Plain English Callout -->
+    <div class="plain-box reveal">
+      <span class="plain-tag">In Plain English</span>
+      <div class="plain-text">Our 5-year financial roadmap scales systematically from 5,000 medical students in Year 1 (₹5.4 Cr ARR) to 10 Lakh multi-vertical students in Year 5 (₹1,080 Cr ARR) as we expand across India's top 5 competitive exams.</div>
     </div>
 
     <div class="card reveal" style="border-left:4px solid var(--cyan);background:var(--elev)">
@@ -994,6 +1139,12 @@ section.dark .deep-dive{background:#232438;border:1px solid rgba(255,255,255,.11
       <span class="eyebrow">Capital Requirement</span>
       <h2>The Investment Ask: ₹10 Crore Milestone-Gated Round</h2>
       <p style="color:#A0A3AD">Capital is drawn in milestone-gated tranches, de-risking investor capital at every checkpoint:</p>
+    </div>
+
+    <!-- Plain English Callout -->
+    <div class="plain-box reveal">
+      <span class="plain-tag" style="background:#4DD0E1">In Plain English</span>
+      <div class="plain-text" style="color:#E8EAEF">We are raising ₹10 Crore in 3 milestone-gated tranches across 24 months to reach 25,000 paid subscribers (₹27 Cr ARR). Because each subscriber yields 88% gross profit, operations achieve cash-flow breakeven and become self-funding at ~18,000–20,000 subscribers.</div>
     </div>
 
     <div class="grid g-2 stagger">
